@@ -2,17 +2,16 @@ package core;
 
 import environment.LifeStage;
 import environment.Behavior;
+import genetics.Genotype;
 
 public class Organism {
     private final Genotype genotype;
-    private Phenotype phenotype;
     private LifeStage lifeStage;
     private Behavior behavior;
 
-    public Organism(Genotype genotype, Phenotype phenotype) {
+    public Organism(Genotype genotype) {
         this.genotype = genotype;
-        this.phenotype = phenotype;
-        this.lifeStage = LifeStage.JUVENILE;
+        this.lifeStage = LifeStage.JUVENILE; // everyone starts as a baby
     }
 
     public void ageUp() {
@@ -23,7 +22,19 @@ public class Organism {
         return lifeStage.canReproduce();
     }
 
-    public Genotype getGenotype() { return genotype; }
-    public Phenotype getPhenotype() { return phenotype; }
-    public LifeStage getLifeStage() { return lifeStage; }
+    public Genotype getGenotype() {
+        return genotype;
+    }
+
+    public LifeStage getLifeStage() {
+        return lifeStage;
+    }
+
+    public void setBehavior(Behavior behavior) {
+        this.behavior = behavior;
+    }
+
+    public Behavior getBehavior() {
+        return behavior;
+    }
 }

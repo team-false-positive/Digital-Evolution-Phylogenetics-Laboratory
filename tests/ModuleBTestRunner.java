@@ -1,7 +1,13 @@
+import core.Organism;
+import environment.Region;
+import genetics.Genotype;
+
 public class ModuleBTestRunner {
     public static void main(String[] args) {
-        // Test LifeStage transitions
-        Organism o = new Organism(null, null); // pass real Genotype/Phenotype once Module A is ready
+        // Create an empty Genotype for testing (no genes set yet — that's fine for this test)
+        Genotype genotype = new Genotype();
+        Organism o = new Organism(genotype);
+
         System.out.println("Stage: " + o.getLifeStage() + ", canReproduce: " + o.canReproduce());
         o.ageUp();
         System.out.println("Stage: " + o.getLifeStage() + ", canReproduce: " + o.canReproduce());
