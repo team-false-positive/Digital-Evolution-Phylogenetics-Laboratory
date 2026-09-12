@@ -21,4 +21,16 @@ public class Genotype {
     public boolean hasGene(Gene gene) {
         return alleleMap.containsKey(gene);
     }
+
+    public Allele[] getAllelePair(Gene gene) {
+        Allele[] pair = alleleMap.get(gene);
+        if (pair == null) {
+            throw new IllegalArgumentException("Gene not present in genotype: " + gene.getName());
+        }
+        return pair;
+    }
+
+    public java.util.Set<Gene> getGenes() {
+        return alleleMap.keySet();
+    }
 }
