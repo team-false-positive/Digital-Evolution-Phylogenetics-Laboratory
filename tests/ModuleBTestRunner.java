@@ -1,0 +1,25 @@
+import core.Organism;
+import environment.Region;
+import genetics.Genotype;
+
+public class ModuleBTestRunner {
+    public static void main(String[] args) {
+        // Create an empty Genotype for testing (no genes set yet — that's fine for this test)
+        Genotype genotype = new Genotype();
+        Organism o = new Organism(genotype);
+
+        System.out.println("Stage: " + o.getLifeStage() + ", canReproduce: " + o.canReproduce());
+        o.ageUp();
+        System.out.println("Stage: " + o.getLifeStage() + ", canReproduce: " + o.canReproduce());
+        o.ageUp();
+        System.out.println("Stage: " + o.getLifeStage() + ", canReproduce: " + o.canReproduce());
+
+        // Test Region composite
+        Region map = new Region("World", "MIXED", 0.5);
+        Region forest = new Region("Forest", "GREEN", 0.8);
+        Region desert = new Region("Desert", "BROWN", 0.2);
+        map.addSubRegion(forest);
+        map.addSubRegion(desert);
+        map.printStructure("");
+    }
+}
